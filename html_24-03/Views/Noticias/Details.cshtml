@@ -1,0 +1,51 @@
+﻿@using html_24_03.Models
+@model Noticia;
+
+@{
+	ViewData["Title"] = "Details";
+	    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+	<h4>Noticia</h4>
+	<hr />
+	<dl class="row">
+		
+		
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.noticiaImg)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.noticiaImg)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.noticiaTitulo)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.noticiaTitulo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.noticiaDescr)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.noticiaDescr)
+		</dt>
+		
+		<dd class="col-sm-10">
+			
+			@Html.Raw(Model.noticiaTexto);
+			
+			
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.noticiaTexto)
+		</dt>
+
+	</dl>
+</div>
+<div>
+	<a asp-action="Edit" asp-route-id="@Model?.noticiaId">Edit</a> |
+	<a asp-action="Index">Back to List</a>
+</div>

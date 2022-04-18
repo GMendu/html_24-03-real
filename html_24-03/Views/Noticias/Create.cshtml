@@ -1,0 +1,51 @@
+﻿@model html_24_03.Models.Noticia
+
+@{
+    ViewData["Title"] = "Create";
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h1>Create</h1>
+
+<h4>Noticia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="noticiaImg" class="control-label"></label>
+                <input type="url" asp-for="noticiaImg" class="form-control">
+                <span asp-validation-for="noticiaImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="noticiaTitulo" class="control-label"></label>
+                <input asp-for="noticiaTitulo" class="form-control">
+                <span asp-validation-for="noticiaTitulo" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="noticiaDescr" class="control-label"></label>
+                <textarea asp-for="noticiaDescr" class="form-control"></textarea>
+                <span asp-validation-for="noticiaDescr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="noticiaTexto" class="control-label"></label>
+                <textarea asp-for="noticiaTexto" class="form-control mytextarea">Hello, World!</textarea>
+                <span asp-validation-for="noticiaTexto" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

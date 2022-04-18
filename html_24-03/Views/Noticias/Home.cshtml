@@ -1,0 +1,23 @@
+﻿@model IEnumerable<html_24_03.Models.Noticia>
+@{
+	ViewData["Title"] = "Home";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Home</h1>
+<div>
+	<div class=row>
+		@foreach (var item in Model)
+		{
+			<div class="col-6">
+				<div class="card-noticia">
+				 <img class="img-noticia" src="@Html.DisplayFor(modelItem => item.noticiaImg)" alt="imagem">
+					<h2 style="font-weight: bold">@Html.DisplayFor(modelItem => item.noticiaTitulo)</h2>
+					<h4>@Html.DisplayFor(modelItem => item.noticiaDescr)</h4>
+					<a href="@Url.Action("VerMais","Noticias", new {id= item.noticiaId})">Leia mais...</a>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+

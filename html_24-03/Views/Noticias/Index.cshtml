@@ -1,0 +1,59 @@
+﻿@model IEnumerable<html_24_03.Models.Noticia>
+
+@{
+	ViewData["Title"] = "Index";
+	    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+	<a asp-action="Create">Create New</a>
+</p>
+@*<table class="table">
+	<thead>
+	<tr>
+	<th>
+	@Html.DisplayNameFor(model => model.noticiaTexto)
+	</th>
+	<th>
+	@Html.DisplayNameFor(model => model.noticiaDescr)
+	</th>
+	<th></th>
+	</tr>
+	</thead>
+	<tbody>*@
+
+
+<div class="accordion" id="accordionExample">
+	@{
+		int i = 0;
+	}
+	@foreach (var item in Model)
+	{
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingOne_@i">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@i" aria-expanded="true" aria-controls="collapseOne">
+					@Html.DisplayFor(modelItem => item.noticiaTitulo)
+
+				</button>
+			</h2>
+			<div id="collapseOne_@i" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<div>
+						<a asp-action="Edit" asp-route-id="@item.noticiaId">Edit</a> |
+						<a asp-action="Details" asp-route-id="@item.noticiaId">Details</a> |
+						<a asp-action="Delete" asp-route-id="@item.noticiaId">Delete</a>
+					</div>
+					<div class="noticia-header-admin">
+						 <img src="@Html.DisplayFor(modelItem => item.noticiaImg)" alt="imagem">
+						<h1 class="noticia-titulo-admin">@Html.DisplayFor(modelItem => item.noticiaTitulo)</h1>
+						<div class="noticia-descricao-admin">@Html.DisplayFor(modelItem => item.noticiaDescr)</div>
+					</div>
+					<p>@Html.Raw(item.noticiaTexto)</p>
+				</div>
+			</div>
+		</div>
+		i++;
+	}
+</div>

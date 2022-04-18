@@ -1,0 +1,26 @@
+﻿@using html_24_03.Models
+@model Noticia;
+
+@{
+	ViewData["Title"] = "VerMais";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+	<div class="noticia-wrapper">
+		<img class="noticia-img" src="@Html.DisplayFor(model => model.noticiaImg)" alt="imagem">
+		<div>
+			<h2 style="font-weight: bold">
+				@Html.DisplayFor(model => model.noticiaTitulo)
+			</h2>
+		</div>
+		<div>
+			<h4>
+				@Html.DisplayFor(model => model.noticiaDescr)
+			</h4>
+		</div>
+		<div>
+			@Html.Raw(Model.noticiaTexto);
+		</div>
+	</div>
+</div>

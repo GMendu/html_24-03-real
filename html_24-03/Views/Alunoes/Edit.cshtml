@@ -1,0 +1,37 @@
+﻿@model html_24_03.Models.Aluno
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Aluno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="alunoId" />
+            <div class="form-group">
+                <label asp-for="alunoNome" class="control-label"></label>
+                <input asp-for="alunoNome" class="form-control" />
+                <span asp-validation-for="alunoNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="alunoCursoId" class="control-label"></label>
+                <select asp-for="alunoCursoId" class="form-control" asp-items="ViewBag.alunoCursoId"></select>
+                <span asp-validation-for="alunoCursoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
