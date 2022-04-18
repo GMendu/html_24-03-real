@@ -7,16 +7,12 @@
 
 <h1>Home</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.cursoNome)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,11 +20,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.cursoNome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.cursosId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.cursosId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.cursosId">Delete</a>
             </td>
         </tr>
 }
