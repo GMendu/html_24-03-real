@@ -5,9 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Home</h1>
+<h1>Cursos</h1>
 
-<table class="table">
+<div class=home-body>
+<div class="home-div">
+        <ul>
+            @foreach (var item in Model) {
+            <li>@Html.DisplayFor(modelItem => item.cursoNome)</li>
+        }
+        </ul>
+    
+</div>
+</div>
+
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -25,3 +36,4 @@
 }
     </tbody>
 </table>
+*@
